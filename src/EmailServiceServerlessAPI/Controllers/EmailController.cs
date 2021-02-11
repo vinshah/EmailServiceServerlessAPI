@@ -26,7 +26,7 @@ namespace EmailServiceServerlessAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] EmailEnquiryModel email)
         {
-            await _emailService.SendEmail(email);
+            _emailService.SendEmail(email);
             return Ok();
         }
      

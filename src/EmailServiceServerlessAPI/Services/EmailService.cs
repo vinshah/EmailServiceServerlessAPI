@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Amazon;
 using Amazon.SimpleEmail;
 using Amazon.SimpleEmail.Model;
@@ -9,7 +10,7 @@ namespace EmailServiceServerlessAPI.Services
 {
     public class EmailService
     {
-        public void SendEmail(EmailEnquiryModel email)
+        public async Task SendEmail(EmailEnquiryModel email)
         {
             var receiverAddress = "bhavin.shah@anbsynergies.com";
 
@@ -46,7 +47,7 @@ namespace EmailServiceServerlessAPI.Services
                 try
                 {
                     Console.WriteLine("Sending email using Amazon SES...");
-                    var response = client.SendEmailAsync(sendRequest);
+                    var response = await client.SendEmailAsync(sendRequest);
                     Console.WriteLine("The email was sent successfully.");
                 }
                 catch (Exception ex)
