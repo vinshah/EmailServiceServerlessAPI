@@ -13,9 +13,9 @@ namespace EmailServiceServerlessAPI.Controllers
     public class EmailController : ControllerBase
     {
         private readonly EmailService _emailService;
-        private readonly Logger _logger;
+        private readonly Logger<EmailController> _logger;
 
-        public EmailController(EmailService emailService, Logger logger)
+        public EmailController(EmailService emailService, Logger<EmailController> logger)
         {
             _emailService = emailService;
             _logger = logger;
